@@ -1,8 +1,30 @@
-import "./index.scss";
+import "./styles/main.scss";
+import { fun } from "./dashboard.js"
 
 const server = "http://localhost:3042";
 
-document.getElementById("exchange-address").addEventListener('input', ({ target: {value} }) => {
+fun();
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
+
+fetch(`${server}/addresses`).then((response) => {
+    return response.json();
+  }).then(({ addresses }) => {
+    removeAllChildNodes(addresses)
+    for (let i=0; i<addresses.length; i++) {
+      var address = document.createElement("li");
+      var node = document.createTextNode(addresses[i]);
+      address.appendChild(node);
+      var element = document.getElementById("addresses");
+      element.appendChild(address);
+      }
+});
+
+document.getElementById("exchange-address").addEventListener('input', ({ target : {value} }) => {
   if(value === "") {
     document.getElementById("balance").innerHTML = 0;
     return;

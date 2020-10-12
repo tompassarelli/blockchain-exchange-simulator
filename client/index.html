@@ -1,12 +1,21 @@
 <html>
-<body>
+<head>
+</head>
+<body class="antialiased bg-blue-500 text-black">
+  <div class="header"></div>
   <div class="components">
+    <div class="creataccount"></div>
     <div class="wallet">
-      <h1> Your Wallet </h1>
-      <input type="text" id="exchange-address" placeholder="Your Address" />
+      <h1> Select Wallet </h1>
+      <input type="text" id="exchange-address" placeholder="Input Address" />
       <div id="balance">
         0
       </div>
+    </div>
+  
+    <div class="wallet-addresses">
+      <h1> Your Accounts </h1>
+      <ul id="addresses"></ul>
     </div>
 
     <div class="send">
