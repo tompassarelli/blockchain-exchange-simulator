@@ -2,3 +2,5 @@ dist
 .cache
 !.gitignore
 *.lock
+.parcel-cache
+node_modules/
